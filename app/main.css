@@ -1,0 +1,282 @@
+:root {
+    --clr-green-200: hsl(148, 38%, 91%);
+    --clr-green-600: hsl(169, 82%, 27%);
+    --clr-green-800: #063f36;
+    --clr-red: hsl(0, 66%, 54%);
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-grey-500: hsl(186, 15%, 59%);
+    --clr-grey-900: hsl(187, 24%, 22%);
+
+    --ff-base: Karla, sans-serif;
+    --fw-normal: 400;
+    --fw-bold: 700;
+    --b-round-8: 0.5rem;
+    --b-round-10: 0.625rem;
+    --b-circle: 9999px;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+body {
+    line-height: 1;
+    font-family: var(--ff-base);
+    font-size: calc(16rem / 16);
+    background-color: var(--clr-green-200);
+    min-height: 100vh;
+    color: var(--clr-grey-900);
+}
+
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    margin: 2rem 0;
+    width: min(46rem, 100vw - 2rem);
+    background-color: var(--clr-white);
+    border-radius: calc(16rem / 16);
+    padding: calc(24rem / 16);
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+.form-container h1 {
+    width: 100%;
+    font-size: calc(32rem / 16);
+    font-weight: var(--fw-bold);
+    margin-bottom: calc(36rem / 16);
+    letter-spacing: calc(-1rem / 16);
+}
+.form-container button {
+    border: none;
+    border-radius: var(--b-round-8);
+    background-color: var(--clr-green-600);
+    cursor: pointer;
+    color: var(--clr-white);
+    font-weight: var(--fw-bold);
+    font-size: calc(18rem / 16);
+    padding: calc(20rem / 16) 0 calc(20rem / 16) 0;
+    transition: 200ms ease;
+    width: 100%;
+}
+
+.textbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(15.625rem, 100%), 1fr));
+    gap: calc(28rem / 16) calc(16rem / 16);
+    margin-bottom: calc(28rem / 16);
+}
+
+.textbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.textbox input,
+textarea {
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--clr-grey-500);
+    border-radius: var(--b-round-8);
+    padding: calc(13rem / 16) 0 calc(15rem / 16) calc(23rem / 16);
+    margin-top: calc(12rem / 16);
+    font-size: calc(18rem / 16);
+    transition: 200ms ease;
+    color: initial;
+    resize: none;
+}
+.textbox textarea {
+    height: calc(240rem / 16);
+}
+
+.query-type-wrapper {
+    padding: 0;
+    border: none;
+    margin: calc(28rem / 16) 0 calc(28rem / 16) 0;
+}
+.query-type-wrapper legend {
+    margin-left: -0.125rem;
+    margin-bottom: 1.3125rem;
+}
+.radiobox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(15.625rem, 100%), 1fr));
+    gap: 1.0625rem 1rem;
+}
+
+.radiobox input {
+    display: none;
+}
+.radiobox label {
+    padding: 0.9375rem 0 0.9375rem 1.625rem;
+    border: 1px solid var(--clr-grey-500);
+    border-radius: var(--b-round-8);
+    font-size: calc(18rem / 16);
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    transition: 200ms ease;
+}
+.radiobox label .outer-circle {
+    height: 1.1875rem;
+    width: 1.1875rem;
+    border-radius: var(--b-circle);
+    margin-right: 0.9375rem;
+    border: 1px solid var(--clr-grey-500);
+}
+.radiobox label .inner-circle {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/images/icon-radio-selected.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: var(--b-circle);
+    transition: 250ms ease;
+}
+.radiobox input:checked + label .outer-circle,
+.radiobox input:checked + label {
+    border-color: var(--clr-green-600);
+    background-color: var(--clr-green-200);
+}
+.radiobox input:checked + label .inner-circle {
+    display: block;
+}
+
+.checkbox {
+    margin: 2.5rem 0 2.5625rem 0;
+    line-height: 1.5;
+}
+.checkbox label {
+    margin: 0 0.75rem 0 0.1875rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: fit-content;
+}
+.checkbox input {
+    display: none;
+}
+.checkbox .outer-box {
+    position: relative;
+    width: 1.0625rem;
+    height: 1.0625rem;
+    border: 1px solid var(--clr-grey-500);
+    margin-right: 1.25rem;
+    flex-shrink: 0;
+}
+.checkbox .inner-box {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    outline: 1px solid var(--clr-green-600);
+    background-image: url("./assets/images/icon-checkbox-check.svg");
+    background-position: center center;
+    transition: 200ms ease;
+}
+.checkbox input:checked + label .inner-box {
+    display: block;
+}
+
+.error-message {
+    display: none;
+    color: var(--clr-red);
+}
+.error-message.show {
+    display: block;
+}
+.query-type-wrapper .error-message {
+    margin: 1.25rem 0 0.25rem 0;
+}
+.checkbox .error-message {
+    margin: 0.5rem 0 0.25rem 0;
+}
+.textbox .error-message {
+    margin: 0.75rem 0 0.25rem 0;
+}
+
+.toast {
+    display: none;
+    position: absolute;
+    background-color: var(--clr-green-800);
+    border-radius: var(--b-round-10);
+    width: min(28.125rem, 100vw - 2rem);
+    color: var(--clr-white);
+    top: 1.5rem;
+    padding: 1.6875rem 1rem 1.75rem 1.5rem;
+}
+.toast.show {
+    display: initial;
+}
+
+.toast > div {
+    margin-left: 0.125rem;
+    display: flex;
+    align-items: center;
+}
+.toast .title {
+    letter-spacing: 0.021875rem;
+    font-size: 1.125rem;
+    margin-left: 0.625rem;
+}
+.toast .description {
+    margin-top: 0.9375rem;
+    opacity: 0.8;
+}
+
+.asterisk::after {
+    content: "*";
+    margin-left: 1ch;
+    color: var(--clr-green-600);
+}
+
+@media not all and (hover: none) {
+    .textbox input:hover,
+    textarea:hover {
+        border-color: var(--clr-green-600);
+    }
+
+    .form-container button:hover {
+        background-color: var(--clr-green-800);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .form-container {
+        margin-top: calc(128rem / 16);
+        padding: calc(40rem / 16);
+    }
+
+    .textbox textarea {
+        height: calc(105rem / 16);
+    }
+}

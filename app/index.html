@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./main.css" />
+
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <main>
+      <section class="form-container">
+        <h1>Contact Us</h1>
+
+        <form id="contact-form">
+          <div class="textbox-group">
+            <div class="textbox first-name">
+              <label class="asterisk" for="first-name">First Name</label>
+              <input id="first-name" type="text" required />
+              <p class="error-message"></p>
+            </div>
+            <div class="textbox last-name">
+              <label class="asterisk" for="last-name">Last Name</label>
+              <input id="last-name" type="text" required />
+              <p class="error-message"></p>
+            </div>
+          </div>
+          <div class="textbox email">
+            <label class="asterisk" for="email">Email Address</label>
+            <input id="email" type="email" required />
+            <p class="error-message"></p>
+          </div>
+          <fieldset class="query-type-wrapper">
+            <legend class="asterisk">Query Type</legend>
+            <div class="radiobox-group">
+              <div class="radiobox">
+                <input id="general-enquiry" name="query-type" type="radio" required />
+                <label for="general-enquiry">
+                  <span class="outer-circle"><span class="inner-circle"></span></span>
+                  <span>General Enquiry</span>
+                </label>
+              </div>
+              <div class="radiobox">
+                <input id="support-request" name="query-type" type="radio" />
+                <label for="support-request">
+                  <span class="outer-circle"><span class="inner-circle"></span></span>
+                  <span>Support Request</span>
+                </label>
+              </div>
+            </div>
+            <p class="error-message"></p>
+          </fieldset>
+          <div class="textbox message">
+            <label class="asterisk" for="message">Message</label>
+            <textarea id="message" required></textarea>
+            <p class="error-message"></p>
+          </div>
+          <div class="checkbox agreement">
+            <input id="consent-input" type="checkbox" required />
+            <label for="consent-input">
+              <span class="outer-box"><span class="inner-box"></span></span>
+              <span class="asterisk">I consent to being contacted by the team</span>
+            </label>
+            <p class="error-message"></p>
+          </div>
+          <button aria type="submit">Submit</button>
+        </form>
+      </section>
+
+      <div class="toast">
+        <div>
+          <img src="./assets/images/icon-success-check.svg" alt="icon-success-check" />
+          <p class="title">Message Sent!</p>
+        </div>
+        <p class="description">Thanks for completing the form. We'll be in touch soon!</p>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
