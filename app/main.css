@@ -226,7 +226,7 @@ textarea {
 
 .toast {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: var(--clr-green-800);
     border-radius: var(--b-round-10);
     width: min(28.125rem, 100vw - 2rem);
