@@ -5,18 +5,18 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 
 ### Challenge
 
-- No access to design files :expressionless:
+- No access to design files, attempt pixel-perfect
 
 Users should be able to:
 
-- Complete the form and see a success toast message upon successful submission :yum:
+- Complete the form and see a success toast message upon successful submission
 - Receive form validation messages if:
-  - A required field has been missed :yum:
-  - The email address is not formatted correctly :yum:
-- Complete the form only using their keyboard :yum:
-- Have inputs, error messages, and the success message announced on their screen reader :yum:
-- View the optimal layout for the interface depending on their device's screen size :yum:
-- See hover and focus states for all interactive elements on the page :yum:
+  - A required field has been missed
+  - The email address is not formatted correctly
+- Complete the form only using their keyboard
+- Have inputs, error messages, and the success message announced on their screen reader
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
 ### Solution
 
@@ -28,10 +28,6 @@ Users should be able to:
 ![](./.docs/design/desktop-design.jpg)
 
 ## Working in `fm-contact-form` repository
-
-### Packages being used
-
-- [`browser-sync`](https://github.com/BrowserSync/browser-sync)
 
 ### Clone this project to your machine
 

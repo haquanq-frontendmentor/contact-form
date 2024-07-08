@@ -1,98 +1,196 @@
 const errorMessages = {
-    EMPTY: "This field is required",
+    REQUIRED_FIELD: "This field is required",
     EMAIL: "Please enter a valid email address",
     QUERY_TYPE: "Please select a query type",
     AGREE_TERM: "To submit this form, please consent to being contacted",
 };
 
-const firstNameInput = document.querySelector(".textbox.first-name input");
-const lastNameInput = document.querySelector(".textbox.last-name input");
-const emailInput = document.querySelector(".textbox.email input");
-const messageInput = document.querySelector(".textbox.message textarea");
-const agreementInput = document.querySelector(".checkbox.agreement input");
-const queryTypeInputs = document.querySelectorAll(".query-type-wrapper .radiobox input");
+const firstNameTextbox = {
+    inputElement: document.querySelector(".textbox.first-name input"),
+    errorText: document.querySelector(".textbox.first-name .error-message"),
+    checkValid() {
+        if (this.inputElement.value == "") {
+            this.showError(errorMessages.REQUIRED_FIELD);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.inputElement.blur();
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+        this.inputElement.style.borderColor = "var(--clr-red)";
+    },
+    clearError() {
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+        this.inputElement.style.borderColor = null;
+    },
+    init() {
+        this.inputElement.addEventListener("focus", () => this.clearError());
+    },
+};
 
-const firstNameInputErrorMessage = document.querySelector(".textbox.first-name .error-message");
-const lastNameInputErrorMessage = document.querySelector(".textbox.last-name .error-message");
-const emailInputErrorMessage = document.querySelector(".textbox.email .error-message");
-const messageInputErrorMessage = document.querySelector(".textbox.message .error-message");
-const agreementInputErrorMessage = document.querySelector(".checkbox.agreement .error-message");
-const queryTypeInputErrorMessage = document.querySelector(".query-type-wrapper .error-message");
+const lastNameTextbox = {
+    inputElement: document.querySelector(".textbox.last-name input"),
+    errorText: document.querySelector(".textbox.last-name .error-message"),
+    checkValid() {
+        if (this.inputElement.value == "") {
+            this.showError(errorMessages.REQUIRED_FIELD);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.inputElement.blur();
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+        this.inputElement.style.borderColor = "var(--clr-red)";
+    },
+    clearError() {
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+        this.inputElement.style.borderColor = null;
+    },
+    init() {
+        this.inputElement.addEventListener("focus", () => this.clearError());
+    },
+};
 
-document.querySelector("#contact-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    document.querySelector(".toast").classList.add("show");
-});
-document.addEventListener("click", () => {
-    document.querySelector(".toast").classList.remove("show");
-});
+const emailTextbox = {
+    inputElement: document.querySelector(".textbox.email input"),
+    errorText: document.querySelector(".textbox.email .error-message"),
+    checkValid() {
+        if (this.inputElement.checkValidity()) {
+            this.showError(errorMessages.EMAIL);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.inputElement.blur();
+        this.inputElement.style.borderColor = "var(--clr-red)";
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+    },
+    clearError() {
+        this.inputElement.style.borderColor = null;
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+    },
+    init() {
+        this.inputElement.addEventListener("focus", () => this.clearError());
+    },
+};
 
-firstNameInput.addEventListener("invalid", (e) => {
-    e.preventDefault();
-    firstNameInput.blur;
-    firstNameInputErrorMessage.textContent = errorMessages.EMPTY;
-    firstNameInputErrorMessage.classList.add("show");
-    showingError = true;
-});
-firstNameInput.addEventListener("focus", () => {
-    firstNameInputErrorMessage.classList.remove("show");
-    firstNameInputErrorMessage.textContent = "";
-});
+const messageTextbox = {
+    inputElement: document.querySelector(".textbox.message textarea"),
+    errorText: document.querySelector(".textbox.message .error-message"),
+    checkValid() {
+        if (this.inputElement.value == "") {
+            this.showError(errorMessages.REQUIRED_FIELD);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.inputElement.blur();
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+        this.inputElement.style.borderColor = "var(--clr-red)";
+    },
+    clearError() {
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+        this.inputElement.style.borderColor = null;
+    },
+    init() {
+        this.inputElement.addEventListener("focus", () => this.clearError());
+    },
+};
 
-lastNameInput.addEventListener("invalid", (e) => {
-    e.preventDefault();
-    lastNameInput.blur();
-    lastNameInputErrorMessage.textContent = errorMessages.EMPTY;
-    lastNameInputErrorMessage.classList.add("show");
-});
-lastNameInput.addEventListener("focus", () => {
-    lastNameInputErrorMessage.classList.remove("show");
-    lastNameInputErrorMessage.textContent = "";
-});
+const queryTypeSelect = {
+    optionElements: document.querySelectorAll(".query-type__wrapper .radiobox input"),
+    errorText: document.querySelector(".query-type__wrapper .error-message"),
+    checkSelected() {
+        const noneSelected = Array.from(this.optionElements).every((el) => !el.checked);
+        if (noneSelected) {
+            this.showError(errorMessages.QUERY_TYPE);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+    },
+    clearError() {
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+    },
+    init() {
+        this.optionElements.forEach((el) => el.addEventListener("focus", () => this.clearError()));
+    },
+};
 
-emailInput.addEventListener("invalid", (e) => {
-    e.preventDefault();
-    emailInput.blur();
-    emailInputErrorMessage.textContent = errorMessages.EMAIL;
-    emailInputErrorMessage.classList.add("show");
-});
-emailInput.addEventListener("focus", () => {
-    emailInputErrorMessage.classList.remove("show");
-    emailInputErrorMessage.textContent = "";
-});
+const agreementCheckbox = {
+    inputElement: document.querySelector(".checkbox.agreement input"),
+    errorText: document.querySelector(".checkbox.agreement .error-message"),
+    checkSelected() {
+        if (this.inputElement.checked == false) {
+            this.showError(errorMessages.AGREE_TERM);
+            return false;
+        }
+        return true;
+    },
+    showError(message) {
+        this.inputElement.blur();
+        this.errorText.textContent = message;
+        this.errorText.classList.add("show");
+    },
+    clearError() {
+        this.errorText.classList.remove("show");
+        this.errorText.textContent = "";
+    },
+    init() {
+        this.inputElement.addEventListener("focus", () => this.clearError());
+    },
+};
 
-messageInput.addEventListener("invalid", (e) => {
-    e.preventDefault();
-    messageInput.blur();
-    messageInputErrorMessage.textContent = errorMessages.EMPTY;
-    messageInputErrorMessage.classList.add("show");
-});
-messageInput.addEventListener("focus", () => {
-    messageInputErrorMessage.classList.remove("show");
-    messageInputErrorMessage.textContent = "";
-});
+const contactForm = {
+    formElement: document.querySelector("#contact-form"),
+    bootstrap() {
+        firstNameTextbox.init();
+        lastNameTextbox.init();
+        emailTextbox.init();
+        queryTypeSelect.init();
+        messageTextbox.init();
+        agreementCheckbox.init();
+    },
+    init() {
+        this.bootstrap();
 
-agreementInput.addEventListener("invalid", (e) => {
-    e.preventDefault();
-    agreementInput.blur();
-    agreementInputErrorMessage.textContent = errorMessages.AGREE_TERM;
-    agreementInputErrorMessage.classList.add("show");
-});
-document.querySelector(".checkbox.agreement").addEventListener("click", () => {
-    agreementInputErrorMessage.classList.remove("show");
-    agreementInputErrorMessage.textContent = "";
-});
+        this.formElement.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-queryTypeInputs.forEach((element) => {
-    element.addEventListener("invalid", (e) => {
-        e.preventDefault();
-        element.blur();
-        queryTypeInputErrorMessage.textContent = errorMessages.QUERY_TYPE;
-        queryTypeInputErrorMessage.classList.add("show");
-    });
-});
+            const valid = [
+                firstNameTextbox.checkValid(),
+                lastNameTextbox.checkValid(),
+                emailTextbox.checkValid(),
+                queryTypeSelect.checkSelected(),
+                messageTextbox.checkValid(),
+                agreementCheckbox.checkSelected(),
+            ].every((v) => v);
 
-document.querySelector(".query-type-wrapper").addEventListener("click", () => {
-    queryTypeInputErrorMessage.classList.remove("show");
-    queryTypeInputErrorMessage.textContent = "";
-});
+            if (!valid) return;
+        });
+
+        window.addEventListener("click", () => {
+            document.querySelector(".toast").classList.remove("show");
+        });
+    },
+};
+
+contactForm.init();
+
+console.log(window.devicePixelRatio);
