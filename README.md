@@ -23,8 +23,6 @@ Users should be able to:
 - Built with: `HTML` `CSS` `JS`
 - Mobile first workflow
 
-:link: [`Solution Link`](https://www.frontendmentor.io/solutions/only-html-and-css-and-js-UJ47eguqug) :link: [`Live Site Link`](https://haquanq.github.io/fm-contact-form/)
-
 ![](./.docs/design/desktop-design.jpg)
 
 ## Working in `fm-contact-form` repository
