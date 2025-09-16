@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./styles/main.css" />
+
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <main>
+      <section class="contact">
+        <h1 class="contact__title">Contact Us</h1>
+        <form class="contact__form" id="contact-form" novalidate>
+          <div class="contact__name">
+            <div class="text-field" id="first-name-text-field">
+              <label class="text-field__label" for="first-name-input">
+                First Name <span class="asterisk" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="text-field__input"
+                id="first-name-input"
+                type="text"
+                name="first-name"
+                aria-invalid="false"
+                aria-describedby="first-name-input-hint"
+              />
+              <span class="text-field__hint" id="first-name-input-hint"></span>
+            </div>
+            <div class="text-field" id="last-name-text-field">
+              <label class="text-field__label" for="last-name-input">
+                Last Name <span class="asterisk" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="text-field__input"
+                id="last-name-input"
+                type="text"
+                name="last-name"
+                aria-invalid="false"
+                aria-describedby="last-name-input-hint"
+              />
+              <span class="text-field__hint" id="last-name-input-hint"></span>
+            </div>
+          </div>
+          <div class="text-field" id="email-text-field">
+            <label class="text-field__label" for="email-input">
+              Email Address <span class="asterisk" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="text-field__input"
+              id="email-input"
+              type="email"
+              name="email"
+              aria-invalid="false"
+              aria-describedby="email-input-hint"
+            />
+            <span class="text-field__hint" id="email-input-hint"></span>
+          </div>
+          <div class="contact__type">
+            <fieldset class="radio-field" id="query-type-radio-field" aria-invalid="false">
+              <legend class="radio-field__title">
+                Query Type
+                <span class="asterisk" aria-hidden="true">*</span>
+              </legend>
+              <div class="radio-field__group">
+                <label class="radio-field__option">
+                  <input
+                    class="radio-field__input"
+                    value="general-enquiry"
+                    name="query-type"
+                    type="radio"
+                    required
+                    aria-invalid="false"
+                    aria-describedby="query-type-input-hint"
+                  />
+                  <span class="radio-field__circle"></span>
+                  <span class="radio-field__label">General Enquiry</span>
+                  <span class="radio-field__overlay"></span>
+                </label>
+                <label class="radio-field__option">
+                  <input
+                    class="radio-field__input"
+                    value="support-request"
+                    name="query-type"
+                    type="radio"
+                    aria-invalid="false"
+                    aria-describedby="query-type-input-hint"
+                  />
+                  <span class="radio-field__circle"></span>
+                  <span class="radio-field__label">Support Request</span>
+                  <span class="radio-field__overlay"></span>
+                </label>
+              </div>
+              <span class="radio-field__hint" id="query-type-input-hint"></span>
+            </fieldset>
+          </div>
+          <div class="text-field" id="message-text-field">
+            <label class="text-field__label" for="message-input">
+              Message <span class="asterisk" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              class="text-field__input text-field__input--long"
+              id="message-input"
+              name="message"
+              aria-invalid="false"
+              aria-describedby="message-input-hint"
+            ></textarea>
+            <span class="text-field__hint" id="message-input-hint"></span>
+          </div>
+          <div class="checkbox" id="consent-checkbox">
+            <label class="checkbox__content">
+              <input
+                class="checkbox__input"
+                type="checkbox"
+                name="consent"
+                aria-invalid="false"
+                aria-describedby="consent-input-hint"
+              />
+              <span class="checkbox__square"></span>
+              <span class="checkbox__label">
+                I consent to being contacted by the team
+                <span class="asterisk" aria-hidden="true">*</span>
+              </span>
+              <span class="checkbox__overlay"></span>
+            </label>
+            <span class="checkbox__hint" id="consent-input-hint"></span>
+          </div>
+          <button class="contact__submit-btn" type="submit">Submit</button>
+          <p class="contact__form-hint sr-only" role="alert"></p>
+        </form>
+      </section>
+
+      <div class="toast">
+        <p class="toast__title">
+          <img class="toast__title--icon" src="./assets/images/icon-success-check.svg" alt="" />
+          <span class="toast__title--text"> Message Sent! </span>
+        </p>
+        <p class="toast__description">Thanks for completing the form. We'll be in touch soon!</p>
+      </div>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

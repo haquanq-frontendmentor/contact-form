@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    line-height: var(--leading-none);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-tight);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+input,
+textarea,
+button {
+    outline: none;
+}
+
+@supports selector(:focus-visible) {
+    button:focus,
+    input:focus,
+    textarea:focus {
+        outline: none;
+    }
+
+    button:focus-visible,
+    textarea:focus-visible,
+    input:focus-visible {
+        outline-width: var(--focus-outline-width);
+        outline-offset: var(--focus-outline-offset);
+        outline-style: var(--focus-outline-style);
+        outline-color: var(--focus-outline-color);
+    }
+}

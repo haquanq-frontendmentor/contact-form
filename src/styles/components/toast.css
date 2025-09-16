@@ -1,0 +1,30 @@
+.toast {
+    display: none;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 1.5rem;
+    padding-block: 1.6875rem 1.75rem;
+    padding-inline: 1.5rem 1rem;
+    background-color: var(--color-green-800);
+    border-radius: var(--rounded-sm);
+    width: min(28.125rem, 100vw - 2rem);
+    color: var(--color-white);
+
+    &__title {
+        margin-inline-start: 0.125rem;
+        display: flex;
+        align-items: center;
+
+        &--text {
+            letter-spacing: 0.02rem;
+            font-size: var(--text-md);
+            margin-inline-start: 0.625rem;
+        }
+    }
+
+    &__description {
+        margin-block-start: 0.9375rem;
+        opacity: 0.8;
+    }
+}

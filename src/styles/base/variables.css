@@ -1,0 +1,40 @@
+:root {
+    --color-green-200: hsl(148, 38%, 91%);
+    --color-green-600: hsl(169, 82%, 27%);
+    --color-green-800: #063f36;
+    --color-red: hsl(0, 66%, 54%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey-500: hsl(186, 15%, 59%);
+    --color-grey-900: hsl(187, 24%, 22%);
+
+    --shadow-sm: rgba(149, 157, 165, 10%) 0 8px 24px;
+
+    --font-primary: "Karla", system-ui, sans-serif;
+    --font-normal: 400;
+    --font-bold: 700;
+
+    --text-sm: 1rem;
+    --text-md: 1.125rem;
+    --text-xl: 2rem;
+
+    --space-base: 0.25rem;
+
+    --leading-none: 1;
+    --leading-lg: 1.6875rem;
+
+    --rounded-full: 9999px;
+    --rounded-xs: 0.5rem;
+    --rounded-sm: 0.625rem;
+    --rounded-md: 1rem;
+
+    --tracking-tight: -0.012em;
+    --tracking-tighter: -0.03em;
+
+    --focus-outline-width: 2px;
+    --focus-outline-offset: 4px;
+    --focus-outline-style: dashed;
+    --focus-outline-color: var(--color-green-600);
+}
+
+@custom-media --tablet (min-width: 48em);

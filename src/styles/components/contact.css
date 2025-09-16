@@ -1,0 +1,48 @@
+.contact {
+    width: min(46rem, 100vw);
+    background-color: var(--color-white);
+    border-radius: var(--rounded-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+
+    @media (--tablet) {
+        padding: 2.5rem;
+    }
+
+    &__title {
+        font-size: var(--text-xl);
+        font-weight: var(--font-bold);
+        letter-spacing: var(--tracking-tighter);
+        margin-block-end: 2.25rem;
+    }
+
+    &__submit-btn {
+        border: none;
+        border-radius: var(--rounded-xs);
+        background-color: var(--color-green-600);
+        cursor: pointer;
+        color: var(--color-white);
+        font-weight: var(--font-bold);
+        font-size: var(--text-md);
+        padding-block: 1.25rem 1.3125rem;
+        transition: background-color 200ms ease;
+        width: 100%;
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-green-800);
+            }
+        }
+    }
+
+    &__name {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(15.625rem, 100%), 1fr));
+        gap: 1.75rem 1rem;
+        margin-block-end: 1.75rem;
+    }
+}
