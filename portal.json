@@ -1,0 +1,15 @@
+{
+  "name": "Contact Form",
+  "featured": false,
+  "colors:": {
+    "brand": "#0C7D69"
+  },
+  "images": {
+    "preview": "https://raw.githubusercontent.com/haquanq-frontendmentor/contact-form/main/docs/preview.jpg"
+  },
+  "frontendmentor": {
+    "difficulty": "junior",
+    "challengeUrl": "https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj",
+    "solutionUrl": "https://www.frontendmentor.io/solutions/pixel-perfected-better-focus-effects-with-html-and-css-and-js-jvT7UJIT9d"
+  }
+}
